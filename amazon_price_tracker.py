@@ -18,10 +18,10 @@ plist.close()
 # SMTP Server Details
 SMTP_SERVER = 'smtp.gmail.com'
 PORT = 465
-FROM_EMAIL = Your email in quotes
-PASSWORD = Your password in quotes
+FROM_EMAIL = "Your email in quotes"
+PASSWORD = "Your password in quotes"
 
-TO_EMAIL = ""
+TO_EMAIL = "to email in this quotes"
 
 def create_message(url, price, title):
     msg = EmailMessage()
@@ -49,7 +49,7 @@ def extract_price(url):
 def notify(url, price, title):
     print("SMTP Socket Generation")
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 465)   ## Connect to Gmail SMTP server
-    smtp.login(FROM_EMAIL, Your Password in quotes)  ## Login
+    smtp.login(FROM_EMAIL, PASSWORD)  ## Login
     smtp.send_message(create_message(url, price, title))
     print("mail sent")
     smtp.close()
